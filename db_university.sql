@@ -127,3 +127,9 @@ SELECT departments.id, departments.name, teachers.id, teachers.name, teachers.su
 WHERE departments.name LIKE "Dipartimento di Matematica";
 
 -- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
+SELECT * FROM students
+    JOIN exam_student
+        ON students.id = exam_student.student_id
+    JOIN exams
+        ON exam_student.exam_id = exams.id
+ORDER BY students.name, students.surname
